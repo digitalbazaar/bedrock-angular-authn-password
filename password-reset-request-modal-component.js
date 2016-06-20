@@ -32,17 +32,18 @@ function Ctrl($scope, brAlertService) {
   self.title = self.title || 'Forgot your password?';
 
   self.submit = function() {
-    self.onSubmit({options: {sysIdentifier: self.sysIdentifier}})
-      .then(function(response) {
-        self.modalTitle = 'Request received';
-        _display('requestSubmitted');
-      })
-      .catch(function(err) {
-        brAlertService.add('error', err, {scope: $scope});
-      })
-      .then(function() {
-        $scope.$apply();
-      });
+    Promise.resolve(self.onSubmit({
+      options: {sysIdentifier: self.sysIdentifier}
+    })).then(function() {
+      self.modalTitle = 'Request received';
+      _display('requestSubmitted');
+    })
+    .catch(function(err) {
+      brAlertService.add('error', err, {scope: $scope});
+    })
+    .then(function() {
+      $scope.$apply();
+    });
   };
 
   function _display(showProperty) {
