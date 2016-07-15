@@ -1,5 +1,10 @@
 # bedrock-angular-session ChangeLog
 
+## 1.0.3 - 2016-07-15
+
+### Fixed
+- Fix validation on password reset form.
+
 ## 1.0.2 - 2016-06-22
 
 ### Changed
