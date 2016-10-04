@@ -18,7 +18,8 @@ function register(module) {
       stackable: '^stackable'
     },
     templateUrl: requirejs.toUrl(
-      'bedrock-angular-authn-password/password-reset-request-modal-component.html')
+      'bedrock-angular-authn-password/' +
+      'password-reset-request-modal-component.html')
   });
 }
 

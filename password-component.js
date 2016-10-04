@@ -18,7 +18,7 @@ function register(module) {
 }
 
 /* @ngInject */
-function Ctrl($scope, brAlertService, brPasswordService, config) {
+function Ctrl($scope, brAlertService, brPasswordService) {
   var self = this;
   self.loading = false;
   self.multiple = false;
