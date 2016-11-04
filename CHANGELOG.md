@@ -1,4 +1,10 @@
-# bedrock-angular-session ChangeLog
+# bedrock-angular-authn-password ChangeLog
+
+## 1.0.4 - 2016-11-04
+
+### Changed
+- Added test framework.
+- Use `sameAs` directive on password reset form.
 
 ## 1.0.3 - 2016-07-15
 
