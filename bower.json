@@ -1,6 +1,5 @@
 {
   "name": "bedrock-angular-authn-password",
-  "version": "1.0.5-0",
   "moduleType": [
     "amd"
   ],
