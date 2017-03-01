@@ -1,5 +1,10 @@
 # bedrock-angular-authn-password ChangeLog
 
+## 1.1.0 - 2017-03-01
+
+### Changed
+- Place help toggles beside field labels.
+
 ## 1.0.4 - 2016-11-04
 
 ### Changed
