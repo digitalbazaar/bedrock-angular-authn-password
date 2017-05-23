@@ -1,17 +1,11 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.component('brAuthnPasswordResetView', {
-    controller: Ctrl,
-    templateUrl: requirejs.toUrl(
-      'bedrock-angular-authn-password/password-reset-view-component.html')
-  });
-}
+export default {
+  controller: Ctrl,
+  templateUrl:
+    'bedrock-angular-authn-password/password-reset-view-component.html'
+};
 
 /* @ngInject */
 function Ctrl($location, $scope, brAlertService, brPasswordService) {
@@ -51,7 +45,3 @@ function Ctrl($location, $scope, brAlertService, brPasswordService) {
     self.display[showProperty] = true;
   }
 }
-
-return register;
-
-});

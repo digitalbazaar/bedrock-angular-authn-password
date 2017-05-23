@@ -1,5 +1,5 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 var bedrock = global.bedrock;
 var protractor = global.protractor;
@@ -15,7 +15,7 @@ describe('passcode', () => {
     bedrock.get('/');
     element(by.buttonText('Password Reset View')).click();
   });
-  describe('form validation', ()=> {
+  describe('form validation', () => {
     it('should contain the proper fields', () => {
       passcode.checkFields();
     });
@@ -42,8 +42,8 @@ describe('passcode', () => {
         'goodPhraseA', 'nonMatchingPhraseB', 'brValidatorSameAs');
     });
   }); // end form validation
-  describe('form submission', ()=> {
-    it('does not allow submission of an invalid form', ()=> {
+  describe('form submission', () => {
+    it('does not allow submission of an invalid form', () => {
       element(by.brModel('$ctrl.sysPassword'))
         .clear()
         .sendKeys('somePassword');
@@ -53,7 +53,7 @@ describe('passcode', () => {
       var resetButton = element(by.buttonText('Reset Password'));
       resetButton.isEnabled().should.eventually.be.false;
     });
-    it('should allows submission of a valid form', ()=> {
+    it('should allows submission of a valid form', () => {
       element(by.brModel('$ctrl.sysPassword'))
         .clear()
         .sendKeys('somePassword');

@@ -1,21 +1,16 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define(['angular'], function(angular) {
+import angular from 'angular';
 
-'use strict';
-
-function register(module) {
-  module.component('brAuthnPassword', {
-    bindings: {
-      sysId: '@brIdentity',
-      onLogin: '&brOnLogin'
-    },
-    controller: Ctrl,
-    templateUrl:
-      requirejs.toUrl('bedrock-angular-authn-password/password-component.html')
-  });
-}
+export default {
+  bindings: {
+    sysId: '@brIdentity',
+    onLogin: '&brOnLogin'
+  },
+  controller: Ctrl,
+  templateUrl: 'bedrock-angular-authn-password/password-component.html'
+};
 
 /* @ngInject */
 function Ctrl($scope, brAlertService, brPasswordService) {
@@ -77,7 +72,3 @@ function Ctrl($scope, brAlertService, brPasswordService) {
     });
   };
 }
-
-return register;
-
-});

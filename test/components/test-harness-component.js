@@ -1,17 +1,10 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.component('brTestHarness', {
-    controller: Ctrl,
-    templateUrl: requirejs.toUrl(
-      'bedrock-angular-authn-password-test/test-harness-component.html')
-  });
-}
+export default {
+  controller: Ctrl,
+  templateUrl: 'bedrock-angular-authn-password-test/test-harness-component.html'
+};
 
 /* @ngInject */
 function Ctrl($location, brAuthnService) {
@@ -38,7 +31,3 @@ function Ctrl($location, brAuthnService) {
   };
 
 }
-
-return register;
-
-});

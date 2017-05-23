@@ -1,20 +1,13 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.component('brAuthnPasswordReset', {
-    bindings: {
-      onComplete: '&brOnComplete'
-    },
-    controller: Ctrl,
-    templateUrl: requirejs.toUrl(
-      'bedrock-angular-authn-password/password-reset-component.html')
-  });
-}
+export default {
+  bindings: {
+    onComplete: '&brOnComplete'
+  },
+  controller: Ctrl,
+  templateUrl: 'bedrock-angular-authn-password/password-reset-component.html'
+};
 
 /* @ngInject */
 function Ctrl() {
@@ -26,7 +19,3 @@ function Ctrl() {
     self.onComplete({password: self.sysPassword});
   };
 }
-
-return register;
-
-});

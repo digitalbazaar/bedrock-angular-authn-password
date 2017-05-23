@@ -1,16 +1,8 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.service('brPasswordService', factory);
-}
-
 /* @ngInject */
-function factory($http) {
+export default function factory($http) {
   var service = {};
 
   service.login = function(authData) {
@@ -37,7 +29,3 @@ function factory($http) {
 
   return service;
 }
-
-return register;
-
-});

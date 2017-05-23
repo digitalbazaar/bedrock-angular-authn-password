@@ -1,27 +1,20 @@
 /*!
- * Copyright (c) 2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.component('brAuthnPasswordResetRequestModal', {
-    bindings: {
-      title: '@?brTitle',
-      onSubmit: '&brOnSubmit',
-      readOnly: '<brReadOnly',
-      sysIdentifier: '<brSysIdentifier'
-    },
-    controller: Ctrl,
-    require: {
-      stackable: '^stackable'
-    },
-    templateUrl: requirejs.toUrl(
-      'bedrock-angular-authn-password/' +
-      'password-reset-request-modal-component.html')
-  });
-}
+export default {
+  bindings: {
+    title: '@?brTitle',
+    onSubmit: '&brOnSubmit',
+    readOnly: '<brReadOnly',
+    sysIdentifier: '<brSysIdentifier'
+  },
+  controller: Ctrl,
+  require: {
+    stackable: '^stackable'
+  },
+  templateUrl:
+    'bedrock-angular-authn-password/password-reset-request-modal-component.html'
+};
 
 /* @ngInject */
 function Ctrl($scope, brAlertService) {
@@ -54,7 +47,3 @@ function Ctrl($scope, brAlertService) {
     self.display[showProperty] = true;
   }
 }
-
-return register;
-
-});

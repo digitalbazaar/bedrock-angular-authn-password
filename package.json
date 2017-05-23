@@ -1,0 +1,22 @@
+{
+  "name": "bedrock-angular-authn-password",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "~1.6.4",
+    "bedrock-angular-alert": "^3.0.0",
+    "bedrock-angular-authn": "^3.0.0",
+    "bedrock-angular-form": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-angular-authn-password.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-angular-authn-password/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-angular-authn-password#readme"
+}
