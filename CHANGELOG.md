@@ -1,5 +1,12 @@
 # bedrock-angular-authn-password ChangeLog
 
+## 2.0.0 - 2017-05-26
+
+### Changed
+- **BREAKING**: Switch package manager from bower to npm.
+- **BREAKING**: Replace requirejs/amd with ES6 import.
+- Angular 1.6.x is required.
+
 ## 1.1.0 - 2017-03-01
 
 ### Changed
