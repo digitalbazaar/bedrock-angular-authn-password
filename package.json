@@ -9,6 +9,9 @@
     "bedrock-angular-authn": "^3.0.0",
     "bedrock-angular-form": "^3.0.0"
   },
+  "bedrock": {
+    "browserDependencies": "all"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-angular-authn-password.git"
