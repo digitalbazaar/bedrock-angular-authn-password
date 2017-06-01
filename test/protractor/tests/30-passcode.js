@@ -53,7 +53,7 @@ describe('passcode', () => {
       var resetButton = element(by.buttonText('Reset Password'));
       resetButton.isEnabled().should.eventually.be.false;
     });
-    it('should allows submission of a valid form', () => {
+    it('allows submission of a valid form', () => {
       element(by.brModel('$ctrl.sysPassword'))
         .clear()
         .sendKeys('somePassword');

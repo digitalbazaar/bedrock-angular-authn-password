@@ -65,7 +65,7 @@ api.testFieldsMatch2 =
             'ng-show',
             ['$ctrl.regForm', elementName, '$error', expectedErrorId]
               .join('.')))
-          .isDisplayed().should.eventually.be.false;
+          .isPresent().should.eventually.be.false;
       });
     testElementA
       .clear()

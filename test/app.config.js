@@ -12,15 +12,15 @@ config.mongodb.port = 27017;
 config.mongodb.local.collection = 'bedrock_angular_authn_password_app';
 
 var dir = path.join(__dirname);
-config.requirejs.bower.packages.push({
+config.views.system.packages.push({
   path: path.join(dir, 'components'),
-  manifest: path.join(dir, 'bower.json')
+  manifest: path.join(dir, 'package.json')
 });
 
 var parentDir = path.join(__dirname, '..');
-config.requirejs.bower.packages.push({
+config.views.system.packages.push({
   path: path.join(parentDir),
-  manifest: path.join(parentDir, 'bower.json')
+  manifest: path.join(parentDir, 'package.json')
 });
 
 var permissions = config.permission.permissions;

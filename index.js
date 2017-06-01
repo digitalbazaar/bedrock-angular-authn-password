@@ -10,7 +10,8 @@ import PasswordResetViewComponent from './password-reset-view-component.js';
 import PasswordService from './password-service.js';
 
 var module = angular.module(
-  'bedrock.authn-password', ['bedrock.alert', 'bedrock.authn', 'bedrock.form']
+  'bedrock.authn-password', ['bedrock.alert', 'bedrock.authn', 'bedrock.form',
+    'bedrock.modal']
 );
 
 module.component('brAuthnPassword', PasswordComponent);
