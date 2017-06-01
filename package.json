@@ -1,6 +1,6 @@
 {
   "name": "bedrock-angular-authn-password",
-  "version": "2.0.4-0",
+  "version": "2.0.4",
   "description": "",
   "main": "index.js",
   "dependencies": {
