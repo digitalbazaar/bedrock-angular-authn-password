@@ -1,5 +1,10 @@
 # bedrock-angular-authn-password ChangeLog
 
+## 2.0.3 - 2017-06-01
+
+### Fixed
+- Fix bug with loading forgot password modal.
+
 ## 2.0.2 - 2017-06-01
 
 ### Fixed
