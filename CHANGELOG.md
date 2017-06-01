@@ -1,5 +1,11 @@
 # bedrock-angular-authn-password ChangeLog
 
+## 2.0.4 - 2017-06-01
+
+### Fixed
+- Fix dependencies.
+- Fix test suite.
+
 ## 2.0.3 - 2017-06-01
 
 ### Fixed
