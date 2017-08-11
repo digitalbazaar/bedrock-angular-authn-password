@@ -7,48 +7,41 @@ const EC = protractor.ExpectedConditions;
 const api = {};
 module.exports = api;
 
-api.testField = function(modelName, testString, expectedErrorId) {
+api.testField = function(modelName, testString, expectedErrorId, altElement) {
   const testElement = element(by.brModel(modelName));
-  const altElement = $('br-demo-warning');
   testElement
     .clear()
     .sendKeys(testString);
-    // NOTE: Safari does not work with TAB, clicking on another element is the
-    // general solution for bluring an input
   altElement.click();
-  element(by.brModel(modelName)).getAttribute('name')
-    .then(function(elementName) {
-      const validationError = element(by.attribute('br-model', modelName))
-        .element(by.attribute(
-          'ng-show',
-          ['$ctrl.regForm', elementName, '$error', expectedErrorId].join('.')));
-      browser.wait(EC.visibilityOf(validationError), 3000);
-      validationError.isDisplayed().should.eventually.be.true;
-    });
+    // .sendKeys(protractor.Key.TAB);
+  // NOTE: Safari does not work with TAB, clicking on another element is the
+  // general solution for bluring an input
+  // NOTE: `testElement` is the `input` (with no children) not the `br-input`
+  const validationError =
+    $(`[br-model="${modelName}"] [ng-message="${expectedErrorId}"]`);
+  browser.wait(EC.visibilityOf(validationError), 3000);
+  validationError.isDisplayed().should.eventually.be.true;
 };
 
 api.testFieldsMatch =
-  function(modelNameA, modelNameB, testStringA, testStringB, expectedErrorId) {
-    const altElement = $('br-demo-warning');
+  function(modelNameA, modelNameB, testStringA, testStringB, expectedErrorId,
+    altElement) {
+    // const altElement = $('br-demo-warning');
     element(by.brModel(modelNameA)).sendKeys(testStringA);
     const testElementB = element(by.brModel(modelNameB));
-    testElementB.sendKeys(testStringB);
+    testElementB
+      .sendKeys(testStringB);
     altElement.click();
-    element(by.brModel(modelNameB)).getAttribute('name')
-      .then(function(elementName) {
-        element(by.attribute('br-model', modelNameB))
-          .element(by.attribute(
-            'ng-show',
-            ['$ctrl.regForm', elementName, '$error', expectedErrorId]
-              .join('.')))
-          .isDisplayed().should.eventually.be.true;
-      });
+    const validationError =
+      $(`[br-model="${modelNameB}"] [ng-message="${expectedErrorId}"]`);
+    browser.wait(EC.visibilityOf(validationError), 3000);
+    validationError.isDisplayed().should.eventually.be.true;
   };
 
 // set fields to matching values, then change modelNameA
 api.testFieldsMatch2 =
   function(modelNameA, modelNameB, testStringA, testStringB, expectedErrorId) {
-    const altElement = $('br-demo-warning');
+    // const altElement = $('br-demo-warning');
     const testElementA = element(by.brModel(modelNameA));
     testElementA
       .clear()
@@ -56,8 +49,9 @@ api.testFieldsMatch2 =
     const testElementB = element(by.brModel(modelNameB));
     testElementB
       .clear()
-      .sendKeys(testStringA);
-    altElement.click();
+      .sendKeys(testStringA)
+      .sendKeys(protractor.Key.TAB);
+    // altElement.click();
     testElementB.getAttribute('name')
       .then(function(elementName) {
         element(by.attribute('br-model', modelNameB))
@@ -70,13 +64,8 @@ api.testFieldsMatch2 =
     testElementA
       .clear()
       .sendKeys(testStringB);
-    testElementB.getAttribute('name')
-      .then(function(elementName) {
-        element(by.attribute('br-model', modelNameB))
-          .element(by.attribute(
-            'ng-show',
-            ['$ctrl.regForm', elementName, '$error', expectedErrorId]
-              .join('.')))
-          .isDisplayed().should.eventually.be.true;
-      });
+    const validationError =
+      $(`[br-model="${modelNameB}"] [ng-message="${expectedErrorId}"]`);
+    browser.wait(EC.visibilityOf(validationError), 3000);
+    validationError.isDisplayed().should.eventually.be.true;
   };

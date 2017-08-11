@@ -8,6 +8,8 @@
     "postinstall": "node --preserve-symlinks test compile-less"
   },
   "dependencies": {
+    "angular-messages": "^1.6.5",
+    "angular-stackables": "digitalbazaar/angular-stackables#disableHistory",
     "bedrock": "^1.7.0",
     "bedrock-angular": "^3.0.0",
     "bedrock-angular-alert": "^3.0.0",
@@ -26,20 +28,26 @@
     "bedrock-passport": "^3.1.7",
     "bedrock-permission": "^2.4.0",
     "bedrock-protractor": "digitalbazaar/bedrock-protractor#systemjs",
-    "bedrock-server": "^2.1.3",
-    "bedrock-test": "digitalbazaar/bedrock-test#2.x",
+    "bedrock-server": "digitalbazaar/bedrock-server#localDomain",
+    "bedrock-test": "^1.0.0",
     "bedrock-validation": "^2.2.1",
-    "bedrock-views": "^5.2.0",
+    "bedrock-views": "^5.2.1",
+    "bedrock-webpack": "digitalbazaar/bedrock-webpack#symlink",
+    "font-awesome": "^4.7.0",
     "lodash": "^4.17.0",
     "uuid": "^3.1.0"
   },
   "bedrock": {
     "browserDependencies": [
+      "angular",
+      "angular-messages",
       "bedrock-angular",
       "bedrock-angular-alert",
       "bedrock-angular-authn",
+      "bedrock-angular-authn-password",
       "bedrock-angular-form",
-      "bedrock-angular-modal"
+      "bedrock-angular-modal",
+      "font-awesome"
     ]
   }
 }

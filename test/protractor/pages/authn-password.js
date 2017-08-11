@@ -9,16 +9,20 @@ api.COMPONENT_TAG = 'br-authn-password';
 
 api.checkFields = function() {
   const c = api.component();
-  const elements = [];
-  elements.push(c.element(by.brModel('$ctrl.sysIdentifier')));
-  elements.push(c.element(by.brModel('$ctrl.password')));
-  elements.push(c.element(by.buttonText('Sign In')));
-  elements.push(c.element(by.linkText('Forgot your password?')));
-  for(const i in elements) {
-    elements[i].isPresent().should.eventually.be.true;
-  }
+  checkElement(c.element(by.brModel('$ctrl.sysIdentifier')));
+  checkElement(c.element(by.brModel('$ctrl.sysIdentifier')));
+  checkElement(c.element(by.buttonText('Sign In')));
+
+  // NOTE: workaround MicrosoftEdge15.15063 returns space at the end
+  c.$('a').getText().then(txt => {
+    txt.trim().should.equal('Forgot your password?');
+  });
 };
 
 api.component = function() {
   return $(api.COMPONENT_TAG);
 };
+
+function checkElement(e) {
+  return e.isPresent().should.eventually.be.true;
+}

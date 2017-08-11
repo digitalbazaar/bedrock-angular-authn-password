@@ -2,6 +2,7 @@
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 const bedrock = global.bedrock;
+const EC = protractor.ExpectedConditions;
 
 const authnPassword = bedrock.pages['bedrock-angular-authn-password'].password;
 const passwordReset =
@@ -12,6 +13,7 @@ describe('bedrock-angular-authn-password login', () => {
     before(() => {
       bedrock.get('/');
       element(by.buttonText('Sign In')).click();
+      browser.wait(EC.visibilityOf(authnPassword.component()), 3000);
     });
     it('should contain the proper elements', () => {
       authnPassword.checkFields();
@@ -45,7 +47,9 @@ describe('bedrock-angular-authn-password login', () => {
         .clear()
         .sendKeys('password');
       authnPassword.component().element(by.buttonText('Sign In')).click();
+      browser.wait(EC.invisibilityOf(authnPassword.component()), 3000);
       const identity = $('pre');
+      browser.wait(EC.visibilityOf(identity), 10000);
       identity.getText().then(text => {
         const i = JSON.parse(text);
         i.type.should.equal('Identity');
@@ -53,17 +57,19 @@ describe('bedrock-angular-authn-password login', () => {
       });
     });
   }); // end login
-  describe('password reset', () => {
+  describe('forgot password', () => {
     before(() => {
       bedrock.get('/');
       element(by.buttonText('Sign In')).click();
+      browser.wait(EC.visibilityOf(authnPassword.component()), 3000);
       authnPassword.component().element(by.brModel('$ctrl.sysIdentifier'))
         .clear()
         .sendKeys('passwordReset@bedrock.dev');
     });
     beforeEach(() => {
-      authnPassword.component().element(by.linkText('Forgot your password?'))
-        .click();
+      // authnPassword.component().element(by.linkText('Forgot your password?'))
+      // NOTE: workaround MicrosoftEdge15.15063 returns space at the end
+      authnPassword.component().$('a').click();
     });
     it('should contain the proper fields and cancel should close modal', () => {
       passwordReset.checkFields();
@@ -106,6 +112,7 @@ describe('bedrock-angular-authn-password login', () => {
       passwordReset.component().element(by.buttonText('Close')).isDisplayed()
         .should.eventually.be.true;
       passwordReset.component().element(by.buttonText('Close')).click();
+      browser.wait(EC.invisibilityOf(passwordReset.component()), 3000);
       passwordReset.component().isPresent().should.eventually.be.false;
     });
   });

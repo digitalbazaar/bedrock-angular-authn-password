@@ -10,7 +10,6 @@ export default {
 function Ctrl($location, brAuthnService) {
   const self = this;
   self.showLogin = false;
-  self.testData = {};
   self.resetIdentifier = 'alpha@bedrock.dev';
 
   self.authentication = {
@@ -18,16 +17,15 @@ function Ctrl($location, brAuthnService) {
     methods: brAuthnService.methods
   };
 
-  self.onLogin = function(identity) {
+  self.onLogin = identity => {
     self.testData = identity;
   };
 
-  self.passcode = function() {
+  self.passcode = () => {
     $location.url('/passcode?id=someId&passcode=123');
   };
 
-  self.sendPasscode = function(options) {
+  self.sendPasscode = options => {
     self.testData = options;
   };
-
 }

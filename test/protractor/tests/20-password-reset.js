@@ -3,6 +3,8 @@
  */
 const bedrock = global.bedrock;
 const should = global.should;
+const protractor = global.protractor;
+const EC = protractor.ExpectedConditions;
 
 const passwordReset =
   bedrock.pages['bedrock-angular-authn-password'].passwordReset;
@@ -13,6 +15,8 @@ describe('bedrock-angular-authn-password password reset', () => {
   });
   beforeEach(() => {
     element(by.buttonText('Reset Password')).click();
+    browser.wait(EC.visibilityOf($(
+      'br-authn-password-reset-request-modal')), 3000);
   });
   it('should contain the proper fields and close on cancel', () => {
     passwordReset.checkFields();
@@ -40,7 +44,9 @@ describe('bedrock-angular-authn-password password reset', () => {
       .should.eventually.be.true;
     passwordReset.component().element(by.buttonText('Close')).click();
     passwordReset.component().isPresent().should.eventually.be.false;
-    $('pre').getText().then(text => {
+    const identity = $('pre');
+    browser.wait(EC.visibilityOf(identity), 10000);
+    identity.getText().then(text => {
       const i = JSON.parse(text);
       should.exist(i.sysIdentifier);
       i.sysIdentifier.should.equal('alpha@bedrock.dev');

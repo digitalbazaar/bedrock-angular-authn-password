@@ -11,35 +11,39 @@ const helpers = bedrock.pages['bedrock-angular-authn-password'].helpers;
 describe('passcode', () => {
   const threeCharacters = 'abc';
   const fortyCharacters = 'yA2NdBthMcnTqGYz3Eqe9uNHxM8u00TaooiuhIM1';
+  let altElement;
   before(() => {
     bedrock.get('/');
     element(by.buttonText('Password Reset View')).click();
+    browser.wait(EC.visibilityOf($('br-authn-password-reset-view')), 3000);
+    // header that says 'Password Reset'
+    altElement = $('h3');
   });
   describe('form validation', () => {
     it('should contain the proper fields', () => {
       passcode.checkFields();
     });
-    it('should warn on a missing password', function() {
+    it('should warn on a missing password', () => {
       helpers.testField(
-        '$ctrl.sysPassword', '', 'required');
+        '$ctrl.sysPassword', '', 'required', altElement);
     });
-    it('should warn on a short password', function() {
+    it('should warn on a short password', () => {
       helpers.testField(
-        '$ctrl.sysPassword', threeCharacters, 'minlength');
+        '$ctrl.sysPassword', threeCharacters, 'minlength', altElement);
     });
-    it('should warn on a long password', function() {
+    it('should warn on a long password', () => {
       helpers.testField(
-        '$ctrl.sysPassword', fortyCharacters, 'maxlength');
+        '$ctrl.sysPassword', fortyCharacters, 'maxlength', altElement);
     });
-    it('should warn if password confirmation does not match', function() {
+    it('should warn if password confirmation does not match', () => {
       helpers.testFieldsMatch(
         '$ctrl.sysPassword', '$ctrl.passwordConfirmation',
-        'goodPhraseA', 'nonMatchingPhraseB', 'brValidatorSameAs');
+        'goodPhraseA', 'nonMatchingPhraseB', 'brValidatorSameAs', altElement);
     });
     it('warns if password/confirm validated then password is changed', () => {
       helpers.testFieldsMatch2(
         '$ctrl.sysPassword', '$ctrl.passwordConfirmation',
-        'goodPhraseA', 'nonMatchingPhraseB', 'brValidatorSameAs');
+        'goodPhraseA', 'nonMatchingPhraseB', 'brValidatorSameAs', altElement);
     });
   }); // end form validation
   describe('form submission', () => {
@@ -61,7 +65,7 @@ describe('passcode', () => {
         .clear()
         .sendKeys('somePassword');
       const resetButton = element(by.buttonText('Reset Password'));
-      browser.wait(EC.elementToBeClickable(resetButton));
+      browser.wait(EC.elementToBeClickable(resetButton), 3000);
     });
   });
 });

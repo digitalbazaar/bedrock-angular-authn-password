@@ -2,7 +2,7 @@
 <md-button class="md-primary md-raised" ng-click="$ctrl.showReset=true">Reset Password</md-button>
 <md-button class="md-primary md-raised" ng-click="$ctrl.passcode()">Password Reset View</md-button>
 <h1>Test Data</h1>
-<pre>{{$ctrl.testData | json}}</pre>
+<pre ng-if="$ctrl.testData">{{$ctrl.testData | json}}</pre>
 
 <stackable-modal stackable="$ctrl.showLogin">
   <br-authn-login-modal br-display-order="$ctrl.authentication.displayOrder"
