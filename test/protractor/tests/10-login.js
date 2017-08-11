@@ -1,10 +1,10 @@
 /*!
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-var bedrock = global.bedrock;
+const bedrock = global.bedrock;
 
-var authnPassword = bedrock.pages['bedrock-angular-authn-password'].password;
-var passwordReset =
+const authnPassword = bedrock.pages['bedrock-angular-authn-password'].password;
+const passwordReset =
   bedrock.pages['bedrock-angular-authn-password'].passwordReset;
 
 describe('bedrock-angular-authn-password login', () => {
@@ -19,7 +19,7 @@ describe('bedrock-angular-authn-password login', () => {
     it('should display alert on blank login', () => {
       authnPassword.component().element(by.buttonText('Sign In')).click();
 
-      var loginError = $('.br-alert-area-fixed-show');
+      const loginError = $('.br-alert-area-fixed-show');
       loginError.isPresent().should.eventually.be.true;
       loginError.getText().should.eventually
         .contain('The password you entered was incorrect. Please try again.');
@@ -32,7 +32,7 @@ describe('bedrock-angular-authn-password login', () => {
         .clear()
         .sendKeys('badPassword');
       authnPassword.component().element(by.buttonText('Sign In')).click();
-      var loginError = $('.br-alert-area-fixed-show');
+      const loginError = $('.br-alert-area-fixed-show');
       loginError.isPresent().should.eventually.be.true;
       loginError.getText().should.eventually
         .contain('The email address and password combination is incorrect.');
@@ -45,9 +45,9 @@ describe('bedrock-angular-authn-password login', () => {
         .clear()
         .sendKeys('password');
       authnPassword.component().element(by.buttonText('Sign In')).click();
-      var identity = $('pre');
+      const identity = $('pre');
       identity.getText().then(text => {
-        var i = JSON.parse(text);
+        const i = JSON.parse(text);
         i.type.should.equal('Identity');
         i.sysSlug.should.equal('alpha');
       });
@@ -87,7 +87,7 @@ describe('bedrock-angular-authn-password login', () => {
     });
     it('should display an alert if the email is not registered', () => {
       passwordReset.component().element(by.buttonText('Send')).click();
-      var resetAlert = $('.br-alert-area-fixed-show');
+      const resetAlert = $('.br-alert-area-fixed-show');
       resetAlert.isPresent().should.eventually.be.true;
       resetAlert.getText().should.eventually
         .contain('The given email address is not registered.');

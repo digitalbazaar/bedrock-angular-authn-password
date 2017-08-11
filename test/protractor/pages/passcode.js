@@ -2,18 +2,18 @@
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 
-var api = {};
+const api = {};
 module.exports = api;
 
 api.COMPONENT_TAG = 'br-authn-password-reset';
 
 api.checkFields = function() {
-  var c = api.component();
-  var elements = [];
+  const c = api.component();
+  const elements = [];
   elements.push(c.element(by.brModel('$ctrl.sysPassword')));
   elements.push(c.element(by.brModel('$ctrl.passwordConfirmation')));
   elements.push(c.element(by.buttonText('Reset Password')));
-  for(var i in elements) {
+  for(const i in elements) {
     elements[i].isPresent().should.eventually.be.true;
   }
 };

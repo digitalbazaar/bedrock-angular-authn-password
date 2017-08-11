@@ -2,19 +2,19 @@
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
 
-var api = {};
+const api = {};
 module.exports = api;
 
 api.COMPONENT_TAG = 'br-authn-password';
 
 api.checkFields = function() {
-  var c = api.component();
-  var elements = [];
+  const c = api.component();
+  const elements = [];
   elements.push(c.element(by.brModel('$ctrl.sysIdentifier')));
   elements.push(c.element(by.brModel('$ctrl.password')));
   elements.push(c.element(by.buttonText('Sign In')));
   elements.push(c.element(by.linkText('Forgot your password?')));
-  for(var i in elements) {
+  for(const i in elements) {
     elements[i].isPresent().should.eventually.be.true;
   }
 };

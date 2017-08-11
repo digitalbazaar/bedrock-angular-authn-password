@@ -8,7 +8,7 @@ export default {
 
 /* @ngInject */
 function Ctrl($location, brAuthnService) {
-  var self = this;
+  const self = this;
   self.showLogin = false;
   self.testData = {};
   self.resetIdentifier = 'alpha@bedrock.dev';

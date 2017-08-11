@@ -1,16 +1,16 @@
 /*!
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-var bedrock = global.bedrock;
-var protractor = global.protractor;
-var EC = protractor.ExpectedConditions;
+const bedrock = global.bedrock;
+const protractor = global.protractor;
+const EC = protractor.ExpectedConditions;
 
-var passcode = bedrock.pages['bedrock-angular-authn-password'].passcode;
-var helpers = bedrock.pages['bedrock-angular-authn-password'].helpers;
+const passcode = bedrock.pages['bedrock-angular-authn-password'].passcode;
+const helpers = bedrock.pages['bedrock-angular-authn-password'].helpers;
 
 describe('passcode', () => {
-  var threeCharacters = 'abc';
-  var fortyCharacters = 'yA2NdBthMcnTqGYz3Eqe9uNHxM8u00TaooiuhIM1';
+  const threeCharacters = 'abc';
+  const fortyCharacters = 'yA2NdBthMcnTqGYz3Eqe9uNHxM8u00TaooiuhIM1';
   before(() => {
     bedrock.get('/');
     element(by.buttonText('Password Reset View')).click();
@@ -50,7 +50,7 @@ describe('passcode', () => {
       element(by.brModel('$ctrl.passwordConfirmation'))
         .clear()
         .sendKeys('someNonMatchingPassword');
-      var resetButton = element(by.buttonText('Reset Password'));
+      const resetButton = element(by.buttonText('Reset Password'));
       resetButton.isEnabled().should.eventually.be.false;
     });
     it('allows submission of a valid form', () => {
@@ -60,7 +60,7 @@ describe('passcode', () => {
       element(by.brModel('$ctrl.passwordConfirmation'))
         .clear()
         .sendKeys('somePassword');
-      var resetButton = element(by.buttonText('Reset Password'));
+      const resetButton = element(by.buttonText('Reset Password'));
       browser.wait(EC.elementToBeClickable(resetButton));
     });
   });

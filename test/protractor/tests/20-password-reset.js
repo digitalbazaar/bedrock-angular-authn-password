@@ -1,10 +1,10 @@
 /*!
  * Copyright (c) 2016-2017 Digital Bazaar, Inc. All rights reserved.
  */
-var bedrock = global.bedrock;
-var should = global.should;
+const bedrock = global.bedrock;
+const should = global.should;
 
-var passwordReset =
+const passwordReset =
   bedrock.pages['bedrock-angular-authn-password'].passwordReset;
 
 describe('bedrock-angular-authn-password password reset', () => {
@@ -41,7 +41,7 @@ describe('bedrock-angular-authn-password password reset', () => {
     passwordReset.component().element(by.buttonText('Close')).click();
     passwordReset.component().isPresent().should.eventually.be.false;
     $('pre').getText().then(text => {
-      var i = JSON.parse(text);
+      const i = JSON.parse(text);
       should.exist(i.sysIdentifier);
       i.sysIdentifier.should.equal('alpha@bedrock.dev');
     });
