@@ -3,28 +3,24 @@
  */
 /* @ngInject */
 export default function factory($http) {
-  var service = {};
+  const service = {};
 
-  service.login = function(authData) {
+  service.login = authData => {
     // POST identity for verification and to establish session
     // TODO: make URL configurable
-    return Promise.resolve($http.post('/authn/password/login', authData))
-      .then(function(response) {
-        return response.data;
-      });
+    return $http.post('/authn/password/login', authData)
+      .then(response => response.data);
   };
 
-  service.resetPassword = function(options) {
+  service.resetPassword = options => {
     // TODO: make URL configurable
-    return Promise.resolve($http.post('/authn/password/reset', options))
-      .then(function(response) {
-        return response.data;
-      });
+    return $http.post('/authn/password/reset', options)
+      .then(response => response.data);
   };
 
-  service.sendPasscode = function(options) {
+  service.sendPasscode = options => {
     // TODO: make URL configurable
-    return Promise.resolve($http.post('/authn/password/passcode', options));
+    return $http.post('/authn/password/passcode', options);
   };
 
   return service;

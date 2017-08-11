@@ -9,7 +9,7 @@ import PasswordResetRequestModalComponent from
 import PasswordResetViewComponent from './password-reset-view-component.js';
 import PasswordService from './password-service.js';
 
-var module = angular.module(
+const module = angular.module(
   'bedrock.authn-password', ['bedrock.alert', 'bedrock.authn', 'bedrock.form',
     'bedrock.modal']
 );
@@ -22,8 +22,8 @@ module.component('brAuthnPasswordResetView', PasswordResetViewComponent);
 module.service('brPasswordService', PasswordService);
 
 /* @ngInject */
-module.run(function(brAuthnService) {
-  var options = {
+module.run(brAuthnService => {
+  const options = {
     template: 'bedrock-angular-authn-password/password.html'
   };
   brAuthnService.register('authn-password', options);

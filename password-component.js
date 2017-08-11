@@ -13,8 +13,8 @@ export default {
 };
 
 /* @ngInject */
-function Ctrl($scope, brAlertService, brPasswordService) {
-  var self = this;
+function Ctrl($q, $scope, brAlertService, brPasswordService) {
+  const self = this;
   self.loading = false;
   self.multiple = false;
   self.password = null;
@@ -27,7 +27,7 @@ function Ctrl($scope, brAlertService, brPasswordService) {
     self.loading = true;
     brAlertService.clearFeedback();
 
-    var authData = {
+    const authData = {
       password: self.password,
       sysIdentifier: self.sysIdentifier
     };
@@ -35,10 +35,10 @@ function Ctrl($scope, brAlertService, brPasswordService) {
       authData.id = self.sysId;
     }
     brPasswordService.login(authData)
-      .then(function(data) {
+      .then(data => {
         // if a single 'identity' is returned, login was successful
         if(data.identity) {
-          return Promise.resolve(data.identity);
+          return data.identity;
         }
 
         // show multiple identities
@@ -50,7 +50,7 @@ function Ctrl($scope, brAlertService, brPasswordService) {
         });
         self.sysIdentifier = self.choices[0].id;
         self.loading = false;
-      }).catch(function(err) {
+      }).catch(err => {
         if(err.type === 'ValidationError') {
           err = 'The password you entered was incorrect. Please try again.';
         }
@@ -60,13 +60,12 @@ function Ctrl($scope, brAlertService, brPasswordService) {
           return;
         }
         return self.onLogin({identity: identity});
-      }).then(function() {
+      }).then(() => {
         self.loading = false;
-        $scope.$apply();
       });
   };
 
-  self.sendPasscode = function(options) {
+  self.sendPasscode = options => {
     return brPasswordService.sendPasscode({
       sysIdentifier: options.sysIdentifier
     });

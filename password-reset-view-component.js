@@ -9,19 +9,19 @@ export default {
 
 /* @ngInject */
 function Ctrl($location, $scope, brAlertService, brPasswordService) {
-  var self = this;
+  const self = this;
   self.display = {
     reset: true,
     success: false
   };
-  var query = $location.search();
+  const query = $location.search();
 
   if(!(query.id && query.passcode)) {
     $location.url('/');
   }
 
   self.resetPassword = function(password) {
-    var options = {
+    const options = {
       sysIdentifier: query.id,
       sysPasscode: query.passcode,
       sysPasswordNew: password
@@ -39,7 +39,7 @@ function Ctrl($location, $scope, brAlertService, brPasswordService) {
   };
 
   function _display(showProperty) {
-    for(var propertyName in self.display) {
+    for(const propertyName in self.display) {
       self.display[propertyName] = false;
     }
     self.display[showProperty] = true;

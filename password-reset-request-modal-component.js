@@ -17,16 +17,19 @@ export default {
 };
 
 /* @ngInject */
-function Ctrl($scope, brAlertService) {
-  var self = this;
+function Ctrl($q, $scope, brAlertService) {
+  const self = this;
   self.display = {
     requestForm: true,
     requestSubmitted: false
   };
-  self.title = self.title || 'Forgot your password?';
+
+  self.$onInit = () => {
+    self.title = self.title || 'Forgot your password?';
+  };
 
   self.submit = function() {
-    Promise.resolve(self.onSubmit({
+    $q.resolve(self.onSubmit({
       options: {sysIdentifier: self.sysIdentifier}
     })).then(function() {
       self.modalTitle = 'Request received';
@@ -34,14 +37,11 @@ function Ctrl($scope, brAlertService) {
     })
     .catch(function(err) {
       brAlertService.add('error', err, {scope: $scope});
-    })
-    .then(function() {
-      $scope.$apply();
     });
   };
 
   function _display(showProperty) {
-    for(var propertyName in self.display) {
+    for(const propertyName in self.display) {
       self.display[propertyName] = false;
     }
     self.display[showProperty] = true;
