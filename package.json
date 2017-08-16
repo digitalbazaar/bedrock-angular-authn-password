@@ -7,10 +7,10 @@
     "angular": "~1.6.4",
     "angular-messages": "^1.6.5",
     "bedrock-angular-alert": "^3.0.0",
-    "bedrock-angular-authn": "^3.0.0",
+    "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
     "bedrock-angular-form": "^3.0.0",
     "bedrock-angular-material": "^1.0.0",
-    "bedrock-angular-modal": "^5.0.0",
+    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
     "font-awesome": "^4.7.0"
   },
   "bedrock": {
