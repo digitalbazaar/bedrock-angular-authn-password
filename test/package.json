@@ -4,16 +4,16 @@
   "main": "index.js",
   "private": true,
   "scripts": {
+    "start": "node --preserve-symlinks test.js",
     "test": "node --preserve-symlinks test.js test --framework protractor",
     "postinstall": "node --preserve-symlinks test compile-less"
   },
   "dependencies": {
-    "angular": "~1.6.5",
     "angular-messages": "~1.6.5",
     "angular-stackables": "digitalbazaar/angular-stackables#disableHistory",
     "bedrock": "^1.7.0",
     "bedrock-angular": "^3.0.0",
-    "bedrock-angular-alert": "^3.0.0",
+    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
     "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
     "bedrock-angular-form": "^3.0.0",
     "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
@@ -29,19 +29,17 @@
     "bedrock-passport": "^3.1.7",
     "bedrock-permission": "^2.4.0",
     "bedrock-protractor": "digitalbazaar/bedrock-protractor#systemjs",
-    "bedrock-server": "digitalbazaar/bedrock-server#localDomain",
+    "bedrock-server": "^2.3.0",
     "bedrock-test": "^1.0.0",
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.2.1",
-    "bedrock-webpack": "digitalbazaar/bedrock-webpack#symlink",
+    "bedrock-webpack": "^1.1.1",
     "font-awesome": "^4.7.0",
     "lodash": "^4.17.0",
     "uuid": "^3.1.0"
   },
   "bedrock": {
     "browserDependencies": [
-      "angular",
-      "angular-messages",
       "bedrock-angular",
       "bedrock-angular-alert",
       "bedrock-angular-authn",
