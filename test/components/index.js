@@ -6,7 +6,7 @@ import * as bedrock from 'bedrock-angular';
 import TestHarnessComponent from './test-harness-component.js';
 
 const module = angular.module('bedrock.authn-password-test', [
-  'bedrock.authn', 'bedrock.authn-password', 'bedrock.modal'
+  'bedrock.authn', 'bedrock.authn-password', 'ngMaterial'
 ]);
 
 bedrock.setRootModule(module);

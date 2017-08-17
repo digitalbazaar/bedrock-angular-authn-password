@@ -11,7 +11,7 @@ import PasswordService from './password-service.js';
 
 const module = angular.module(
   'bedrock.authn-password', ['bedrock.alert', 'bedrock.authn', 'bedrock.form',
-    'bedrock.modal', 'ngMessages']
+    'bedrock.modal', 'ngMaterial', 'ngMessages']
 );
 
 module.component('brAuthnPassword', PasswordComponent);

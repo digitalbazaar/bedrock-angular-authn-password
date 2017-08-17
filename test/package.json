@@ -13,10 +13,9 @@
     "angular-stackables": "digitalbazaar/angular-stackables#disableHistory",
     "bedrock": "^1.7.0",
     "bedrock-angular": "^3.0.0",
-    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
     "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
-    "bedrock-angular-form": "^3.0.0",
-    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
+    "bedrock-angular-authn-password": "file:..",
+    "bedrock-angular-material": "1.0.0",
     "bedrock-authn-password": "^3.0.3",
     "bedrock-did-client": "^1.0.0",
     "bedrock-docs": "^2.0.2",
@@ -30,7 +29,7 @@
     "bedrock-permission": "^2.4.0",
     "bedrock-protractor": "digitalbazaar/bedrock-protractor#systemjs",
     "bedrock-server": "^2.3.0",
-    "bedrock-test": "^1.0.0",
+    "bedrock-test": "digitalbazaar/bedrock-test#2.x",
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.2.1",
     "bedrock-webpack": "^1.1.1",
@@ -41,13 +40,9 @@
   "bedrock": {
     "browserDependencies": [
       "bedrock-angular",
-      "bedrock-angular-alert",
       "bedrock-angular-authn",
       "bedrock-angular-authn-password",
-      "bedrock-angular-form",
-      "bedrock-angular-material",
-      "bedrock-angular-modal",
-      "font-awesome"
+      "bedrock-angular-material"
     ]
   }
 }
