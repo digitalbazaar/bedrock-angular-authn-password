@@ -4,7 +4,7 @@
   "description": "",
   "browser": "index.js",
   "dependencies": {
-    "bedrock-angular": "^3.0.0",
+    "bedrock-angular": "^4.0.0",
     "angular-messages": "~1.6.5",
     "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
     "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
