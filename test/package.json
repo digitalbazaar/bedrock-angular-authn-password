@@ -9,12 +9,14 @@
     "postinstall": "node --preserve-symlinks test compile-less"
   },
   "dependencies": {
+    "angular-animate": "~1.4.0",
+    "angular-aria": "~1.4.0",
     "angular-messages": "~1.6.5",
     "angular-stackables": "digitalbazaar/angular-stackables#disableHistory",
     "bedrock": "^1.7.0",
     "bedrock-angular": "^3.0.0",
     "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
-    "bedrock-angular-authn-password": "file:..",
+    "bedrock-angular-authn-password": "digitalbazaar/bedrock-angular-authn-password#material",
     "bedrock-angular-material": "1.0.0",
     "bedrock-authn-password": "^3.0.3",
     "bedrock-did-client": "^1.0.0",
@@ -34,11 +36,17 @@
     "bedrock-views": "^5.2.1",
     "bedrock-webpack": "^1.1.1",
     "font-awesome": "^4.7.0",
+    "grunt": "^0.4.0",
     "lodash": "^4.17.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "webpack": "^2.0.0"
   },
   "bedrock": {
     "browserDependencies": [
+      "angular-animate",
+      "angular-aria",
+      "angular-messages",
+      "angular-stackables",
       "bedrock-angular",
       "bedrock-angular-authn",
       "bedrock-angular-authn-password",

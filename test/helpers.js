@@ -19,7 +19,7 @@ api.createIdentity = function(options) {
     type: 'Identity',
     sysSlug: userName,
     label: userName,
-    email: userName + '@bedrock.dev',
+    email: `${userName}@bedrock.dev`,
     sysPassword: 'password',
     sysPublic: ['label', 'url', 'description'],
     sysStatus: 'active',

@@ -13,7 +13,7 @@ api.testField = function(modelName, testString, expectedErrorId, altElement) {
     .clear()
     .sendKeys(testString);
   altElement.click();
-    // .sendKeys(protractor.Key.TAB);
+  // .sendKeys(protractor.Key.TAB);
   // NOTE: Safari does not work with TAB, clicking on another element is the
   // general solution for bluring an input
   // NOTE: `testElement` is the `input` (with no children) not the `br-input`
