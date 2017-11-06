@@ -9,15 +9,12 @@
     "postinstall": "node --preserve-symlinks test compile-less"
   },
   "dependencies": {
-    "angular-animate": "~1.4.0",
-    "angular-aria": "~1.4.0",
-    "angular-messages": "~1.6.5",
-    "angular-stackables": "digitalbazaar/angular-stackables#disableHistory",
     "bedrock": "^1.7.0",
-    "bedrock-angular": "^3.0.0",
+    "bedrock-angular": "^4.0.0",
     "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
-    "bedrock-angular-authn-password": "digitalbazaar/bedrock-angular-authn-password#material",
-    "bedrock-angular-material": "1.0.0",
+    "bedrock-angular-authn-password": "file:..",
+    "bedrock-angular-material": "^1.0.3",
+    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
     "bedrock-authn-password": "^3.0.3",
     "bedrock-did-client": "^1.0.0",
     "bedrock-docs": "^2.0.2",
@@ -26,31 +23,29 @@
     "bedrock-identity-http": "^1.0.3",
     "bedrock-key": "^4.0.0",
     "bedrock-mail": "^2.0.3",
-    "bedrock-mongodb": "^3.2.0",
+    "bedrock-mongodb": "^4.0.0",
     "bedrock-passport": "^3.1.7",
     "bedrock-permission": "^2.4.0",
     "bedrock-protractor": "digitalbazaar/bedrock-protractor#systemjs",
     "bedrock-server": "^2.3.0",
-    "bedrock-test": "digitalbazaar/bedrock-test#2.x",
+    "bedrock-test": "^2.0.0",
     "bedrock-validation": "^2.2.1",
     "bedrock-views": "^5.2.1",
     "bedrock-webpack": "^1.1.1",
     "font-awesome": "^4.7.0",
     "grunt": "^0.4.0",
     "lodash": "^4.17.0",
-    "uuid": "^3.1.0",
-    "webpack": "^2.0.0"
+    "uuid": "^3.1.0"
   },
   "bedrock": {
     "browserDependencies": [
       "angular-animate",
       "angular-aria",
-      "angular-messages",
-      "angular-stackables",
       "bedrock-angular",
       "bedrock-angular-authn",
       "bedrock-angular-authn-password",
-      "bedrock-angular-material"
+      "bedrock-angular-material",
+      "bedrock-angular-modal"
     ]
   }
 }

@@ -5,27 +5,14 @@ const bedrock = require('bedrock');
 const config = bedrock.config;
 const path = require('path');
 
-// config.server.port = 8081;
-// config.server.host = 'bedrock.local';
-// config.server.baseUri = `https://${config.server.host}:${config.server.port}`;
-
 // mongodb config
 config.mongodb.name = 'bedrock_angular_authn_password_app';
-config.mongodb.host = 'localhost';
-config.mongodb.port = 27017;
-config.mongodb.local.collection = 'bedrock_angular_authn_password_app';
 
 const dir = path.join(__dirname);
 config.views.system.packages.push({
   path: path.join(dir, 'components'),
   manifest: path.join(dir, 'package.json')
 });
-
-// const parentDir = path.join(__dirname, '..');
-// config.views.system.packages.push({
-//   path: path.join(parentDir),
-//   manifest: path.join(parentDir, 'package.json')
-// });
 
 const permissions = config.permission.permissions;
 const roles = config.permission.roles;
