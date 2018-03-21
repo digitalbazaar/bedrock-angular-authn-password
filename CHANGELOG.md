@@ -1,5 +1,9 @@
 # bedrock-angular-authn-password ChangeLog
 
+### Changed
+- **BREAKING**: Switch to material design.
+- Use ES6 syntax.
+
 ## 2.0.4 - 2017-06-01
 
 ### Fixed
