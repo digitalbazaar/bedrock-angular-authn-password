@@ -5,11 +5,11 @@
   "browser": "index.js",
   "dependencies": {
     "bedrock-angular": "^4.0.0",
-    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
-    "bedrock-angular-authn": "digitalbazaar/bedrock-angular-authn#material",
-    "bedrock-angular-form": "digitalbazaar/bedrock-angular-form#material-only",
+    "bedrock-angular-alert": "^4.0.0",
+    "bedrock-angular-authn": "^4.0.0",
+    "bedrock-angular-form": "^4.0.0",
     "bedrock-angular-material": "^1.0.0",
-    "bedrock-angular-modal": "digitalbazaar/bedrock-angular-modal#material",
+    "bedrock-angular-modal": "^6.0.0",
     "font-awesome": "^4.7.0"
   },
   "bedrock": {
